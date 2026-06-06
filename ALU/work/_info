@@ -1,0 +1,39 @@
+m255
+K3
+13
+cModel Technology
+Z0 d/home/dragos/Documents/Uni/YEAR2_SEM2/Digital_Computers/Project-DC-2026/ALU
+valu_add
+Z1 Mx1 6 sv_std 3 std
+Z2 DXx6 sv_std 3 std 0 22 WnQ=;W1X^o9K1PIQTgInR3
+Ih0RmdFKi7O9fUhdbG>SSU3
+V?4YB^kdnLaibjlCPMbP5X3
+S1
+w1780779901
+8src/alu_add.sv
+Fsrc/alu_add.sv
+L0 1
+Z3 OV;L;6.5b;42
+r1
+31
+Z4 o-sv -O0
+!s100 83R>S2:PcQT:;ZP@fH8<n0
+!s85 0
+!s101 -O0
+valu_add_tb
+R1
+R2
+!s100 5iCMoe8ml=kc3_0^c5jjC3
+In_AhIf>H;zE0>F`NN[@<X2
+V?ognk4:0l?CbQQi>6@m6T0
+S1
+w1780780071
+8tb/alu_add_tb.sv
+Ftb/alu_add_tb.sv
+L0 3
+R3
+r1
+!s85 0
+31
+!s101 -O0
+R4

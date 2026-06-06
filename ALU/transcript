@@ -1,0 +1,14 @@
+# vsim alu_add_tb 
+# Loading sv_std.std
+# Loading work.alu_add_tb
+# Loading work.alu_add
+# ** Warning: (vsim-3009) [TSCALE] - Module 'alu_add' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /alu_add_tb/dut
+run -all
+# Starting adder testbench
+# 10 + 5 = 15, OV=0
+# 20 + -10 = 10, OV=0
+# 127 + 1 = -128, OV=1
+# -128 + -1 = 127, OV=1
+# Testbench complete
+# Break in Module alu_add_tb at tb/alu_add_tb.sv line 51
