@@ -1,31 +1,33 @@
 # do run_module.do 
 # Modifying /opt/modelsim/linuxaloem/../modelsim.ini
 # Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
-# -- Compiling module alu_addsub
+# -- Compiling module alu_logic
 # 
 # Top level modules:
-# 	alu_addsub
+# 	alu_logic
 # Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
-# -- Compiling module alu_addsub_tb
+# -- Compiling module alu_logic_tb
 # 
 # Top level modules:
-# 	alu_addsub_tb
-# vsim alu_addsub_tb 
+# 	alu_logic_tb
+# vsim alu_logic_tb 
 # Loading sv_std.std
-# Loading work.alu_addsub_tb
-# Loading work.alu_addsub
-# ** Warning: (vsim-3009) [TSCALE] - Module 'alu_addsub' does not have a `timescale directive in effect, but previous modules do.
-#         Region: /alu_addsub_tb/dut
+# Loading work.alu_logic_tb
+# Loading work.alu_logic
+# ** Warning: (vsim-3009) [TSCALE] - Module 'alu_logic' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /alu_logic_tb/dut
 # Starting adder testbench
-# 10 + 5 = 15, OV=0
-# 20 + -10 = 10, OV=0
-# 127 + 1 = -128, OV=1
-# -128 + -1 = 127, OV=1
-# 103 - 45 = 58, OV=0
-# 5 - 10 = -5, OV=0
-# 0 - 0 = 0, OV=0
-# 127 - -1 = -128, OV=1
-# -128 - 1 = 127, OV=1
+# 10 & 5 = 0
+# 15 & 3 = 3
+# 12 | 3 = 15
+# -1 | 0 = -1
+# -1 ^ 15 = -16
+# -128 ^ 127 = -1
 # Testbench complete
-# ** Note: $finish    : tb/alu_addsub_tb.sv(91)
-#    Time: 90 ns  Iteration: 0  Instance: /alu_addsub_tb
+# ** Note: $finish    : tb/alu_logic_tb.sv(67)
+#    Time: 60 ns  Iteration: 0  Instance: /alu_logic_tb
+# 1
+# Break in Module alu_logic_tb at tb/alu_logic_tb.sv line 67
+# Simulation Breakpoint: 1
+# Break in Module alu_logic_tb at tb/alu_logic_tb.sv line 67
+# MACRO ./run_module.do PAUSED at line 12

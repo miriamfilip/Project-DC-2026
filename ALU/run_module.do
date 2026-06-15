@@ -3,10 +3,10 @@ if {![file exists work]} {
 }
 vmap work work
 
-vlog src/alu_addsub.sv
-vlog tb/alu_addsub_tb.sv
+vlog src/alu_logic.sv
+vlog tb/alu_logic_tb.sv
 
-vsim alu_addsub_tb
+vsim alu_logic_tb
 
 add wave -r /*
 run -all
