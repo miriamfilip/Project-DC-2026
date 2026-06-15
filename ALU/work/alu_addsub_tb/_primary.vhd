@@ -1,4 +1,4 @@
 library verilog;
 use verilog.vl_types.all;
-entity alu_add_tb is
-end alu_add_tb;
+entity alu_addsub_tb is
+end alu_addsub_tb;
