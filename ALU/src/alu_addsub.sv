@@ -1,4 +1,4 @@
-module alu_addsub (
+module alu_addsub #(parameter WIDTH = 8)(
     input  logic signed [7:0] A,
     input  logic signed [7:0] B,
     input  logic signed sub,
