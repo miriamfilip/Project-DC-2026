@@ -1,33 +1,98 @@
-# do run_module.do 
+# do run_booth_radix4.do 
 # Modifying /opt/modelsim/linuxaloem/../modelsim.ini
 # Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
-# -- Compiling module alu_logic
+# -- Compiling module dff
 # 
 # Top level modules:
-# 	alu_logic
+# 	dff
 # Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
-# -- Compiling module alu_logic_tb
+# -- Compiling module jkff
 # 
 # Top level modules:
-# 	alu_logic_tb
-# vsim alu_logic_tb 
+# 	jkff
+# Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+# -- Compiling module and3_gate
+# -- Compiling module and2_gate
+# -- Compiling module or2_gate
+# -- Compiling module xorn_gate
+# 
+# Top level modules:
+# 	and3_gate
+# 	and2_gate
+# 	or2_gate
+# 	xorn_gate
+# Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+# -- Compiling module alu_addsub
+# 
+# Top level modules:
+# 	alu_addsub
+# Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+# -- Compiling module tristate_buffer_bus
+# 
+# Top level modules:
+# 	tristate_buffer_bus
+# Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+# -- Compiling module mux2
+# 
+# Top level modules:
+# 	mux2
+# Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+# -- Compiling module alu_shift
+# 
+# Top level modules:
+# 	alu_shift
+# Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+# -- Compiling module register
+# 
+# Top level modules:
+# 	register
+# Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+# -- Compiling module counter_nbits
+# 
+# Top level modules:
+# 	counter_nbits
+# Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+# -- Compiling module cu_booth
+# 
+# Top level modules:
+# 	cu_booth
+# Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+# -- Compiling module alu_booth_radix4
+# 
+# Top level modules:
+# 	alu_booth_radix4
+# Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+# -- Compiling module alu_booth_radix4_tb
+# 
+# Top level modules:
+# 	alu_booth_radix4_tb
+# vsim alu_booth_radix4_tb 
 # Loading sv_std.std
-# Loading work.alu_logic_tb
-# Loading work.alu_logic
-# ** Warning: (vsim-3009) [TSCALE] - Module 'alu_logic' does not have a `timescale directive in effect, but previous modules do.
-#         Region: /alu_logic_tb/dut
-# Starting adder testbench
-# 10 & 5 = 0
-# 15 & 3 = 3
-# 12 | 3 = 15
-# -1 | 0 = -1
-# -1 ^ 15 = -16
-# -128 ^ 127 = -1
+# Loading work.alu_booth_radix4_tb
+# Loading work.alu_booth_radix4
+# ** Warning: (vsim-3009) [TSCALE] - Module 'alu_booth_radix4' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /alu_booth_radix4_tb/dut
+# Loading work.cu_booth
+# Loading work.counter_nbits
+# Loading work.jkff
+# Loading work.and2_gate
+# Loading work.tristate_buffer_bus
+# ** Warning: (vsim-3009) [TSCALE] - Module 'tristate_buffer_bus' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /alu_booth_radix4_tb/dut/M_in
+# Loading work.register
+# Loading work.alu_shift
+# ** Warning: (vsim-3009) [TSCALE] - Module 'alu_shift' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /alu_booth_radix4_tb/dut/shift_2M
+# Loading work.mux2
+# Loading work.alu_addsub
+# ** Warning: (vsim-3009) [TSCALE] - Module 'alu_addsub' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /alu_booth_radix4_tb/dut/adder_instance
+# Loading work.or2_gate
+# Loading work.dff
+# Starting alu_booth_radix4 testbench
+# PASS: 53 * -128 = -6784 (got -6784)
+# --------------------------------------------------
+# Tests passed: 1, Tests failed: 0
 # Testbench complete
-# ** Note: $finish    : tb/alu_logic_tb.sv(67)
-#    Time: 60 ns  Iteration: 0  Instance: /alu_logic_tb
-# 1
-# Break in Module alu_logic_tb at tb/alu_logic_tb.sv line 67
-# Simulation Breakpoint: 1
-# Break in Module alu_logic_tb at tb/alu_logic_tb.sv line 67
-# MACRO ./run_module.do PAUSED at line 12
+# ** Note: $finish    : tb/alu_booth_radix4_tb.sv(124)
+#    Time: 215 ns  Iteration: 1  Instance: /alu_booth_radix4_tb
