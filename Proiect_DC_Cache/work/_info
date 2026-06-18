@@ -1,0 +1,62 @@
+m255
+K3
+13
+cModel Technology
+dD:\CacheProject
+vcache_controller
+Z0 Mx1 6 sv_std 3 std
+Z1 DXx6 sv_std 3 std 0 22 WnQ=;W1X^o9K1PIQTgInR3
+IFa1fJECPcKA35iC6nV<R31
+V_9E4WNERof>S<k>^ho1l82
+S1
+Z2 dD:\Proiect_DC_Cache
+w1781821953
+8D:/Proiect_DC_Cache/src/cache_controller.sv
+FD:/Proiect_DC_Cache/src/cache_controller.sv
+L0 5
+Z3 OV;L;6.5b;42
+r1
+31
+Z4 !s102 -nocovercells
+Z5 o-work work -sv -nocovercells -O0
+!s100 Gk^m1l?dCn[1TZINLZ9G@1
+!s85 0
+!s101 -O0
+vcache_controller_tb
+Z6 Mx1 6 sv_std 3 std
+R1
+!s100 ^NXc<H7k0WiULagO:_f`T2
+IKHQmdVGQh@zoJoz5JK`<K2
+VZ7kLei3b>FLUG_E?^LK`V0
+S1
+R2
+w1781822099
+8D:/Proiect_DC_Cache/tb/cache_controller_tb.sv
+FD:/Proiect_DC_Cache/tb/cache_controller_tb.sv
+L0 4
+R3
+r1
+!s85 0
+31
+!s101 -O0
+R4
+R5
+vmemory
+R6
+R1
+IZS42o9gfGP9fljzKUQ?363
+VZ0I559GHV5YX3n;H^CS3k1
+S1
+R2
+w1781821852
+8D:/Proiect_DC_Cache/src/memory.sv
+FD:/Proiect_DC_Cache/src/memory.sv
+L0 4
+R3
+r1
+31
+R4
+R5
+!s100 O376=dSGTKDz>=FM5_6J32
+!s85 0
+!s101 -O0

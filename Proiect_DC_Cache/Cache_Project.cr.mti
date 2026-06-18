@@ -1,0 +1,25 @@
+D:/Proiect_DC_Cache/src/cache_controller.sv {1 {vlog -work work -sv -nocovercells D:/Proiect_DC_Cache/src/cache_controller.sv
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module cache_controller
+
+Top level modules:
+	cache_controller
+
+} {} {}} D:/Proiect_DC_Cache/src/memory.sv {1 {vlog -work work -sv -nocovercells D:/Proiect_DC_Cache/src/memory.sv
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module memory
+
+Top level modules:
+	memory
+
+} {} {}} D:/Proiect_DC_Cache/tb/cache_controller_tb.sv {1 {vlog -work work -sv -nocovercells D:/Proiect_DC_Cache/tb/cache_controller_tb.sv
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+-- Compiling module cache_controller_tb
+
+Top level modules:
+	cache_controller_tb
+
+} {} {}} D:/Proiect_DC_Cache/src/defs.svh {1 {vlog -work work -sv -nocovercells D:/Proiect_DC_Cache/src/defs.svh
+Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+
+} {} {}}

@@ -1,0 +1,1006 @@
+$date
+	Fri Jun 19 01:57:38 2026
+$end
+$version
+	ModelSim Version 6.5b
+$end
+$timescale
+	1ps
+$end
+$scope module cache_controller_tb $end
+$var parameter 32 ! BLOCK_SIZE $end
+$var parameter 32 " ADDRESS_WIDTH $end
+$var parameter 32 # INDEX_WIDTH $end
+$var parameter 32 $ TAG_WIDTH $end
+$var parameter 32 % OFFSET_WIDTH $end
+$var parameter 32 & WORD_SIZE $end
+$var parameter 32 ' NSETS $end
+$var parameter 32 ( WAYS $end
+$var parameter 0 ) MEM_FILE $end
+$var parameter 32 * CLK_PERIOD_NS $end
+$var parameter 32 + MISS_LATENCY_CYCLES $end
+$var parameter 32 , HIT_LATENCY_CYCLES $end
+$var parameter 21 - ADDR_TAG0 $end
+$var parameter 21 . ADDR_TAG1 $end
+$var parameter 21 / ADDR_TAG2 $end
+$var parameter 21 0 ADDR_TAG3 $end
+$var parameter 21 1 ADDR_TAG4 $end
+$var parameter 21 2 ADDR_SET1 $end
+$var reg 1 3 clock $end
+$var reg 1 4 rst_n $end
+$var reg 21 5 caddress [20:0] $end
+$var reg 32 6 cdin [31:0] $end
+$var reg 256 7 mdin [255:0] $end
+$var reg 1 8 rden $end
+$var reg 1 9 wren $end
+$var reg 1 : hit $end
+$var reg 32 ; cdout [31:0] $end
+$var reg 256 < mdout [255:0] $end
+$var reg 18 = maddress [17:0] $end
+$var reg 1 > mrden $end
+$var reg 1 ? mwren $end
+$var integer 32 @ tests_passed $end
+$var integer 32 A tests_failed $end
+$scope task wait_cycles $end
+$upscope $end
+$scope function get_cache_word $end
+$upscope $end
+$scope function tag_in_set $end
+$upscope $end
+$scope task cache_read $end
+$upscope $end
+$scope task cache_write $end
+$upscope $end
+$scope task check $end
+$upscope $end
+$scope module DUT_CACHE $end
+$var parameter 32 B BLOCK_SIZE $end
+$var parameter 32 C ADDRESS_WIDTH $end
+$var parameter 32 D INDEX_WIDTH $end
+$var parameter 32 E TAG_WIDTH $end
+$var parameter 32 F OFFSET_WIDTH $end
+$var parameter 32 G WORD_SIZE $end
+$var parameter 32 H NSETS $end
+$var parameter 32 I WAYS $end
+$var parameter 32 J TAG_MSB $end
+$var parameter 32 K TAG_LSB $end
+$var parameter 32 L INDEX_MSB $end
+$var parameter 32 M INDEX_LSB $end
+$var parameter 32 N BLOCK_OFFSET_MSB $end
+$var parameter 32 O BLOCK_OFFSET_LSB $end
+$var reg 1 P clock $end
+$var reg 1 Q rst_n $end
+$var reg 21 R caddress [20:0] $end
+$var reg 32 S cdin [31:0] $end
+$var reg 256 T mdin [255:0] $end
+$var reg 1 U rden $end
+$var reg 1 V wren $end
+$var reg 1 W hit $end
+$var reg 32 X cdout [31:0] $end
+$var reg 256 Y mdout [255:0] $end
+$var reg 18 Z maddress [17:0] $end
+$var reg 1 [ mrden $end
+$var reg 1 \ mwren $end
+$var reg 3 ] current_state [2:0] $end
+$var reg 3 ^ next_state [2:0] $end
+$var reg 21 _ req_addr [20:0] $end
+$var reg 1 ` req_read $end
+$var reg 1 a req_write $end
+$var reg 32 b req_wdata [31:0] $end
+$var reg 21 c active_addr [20:0] $end
+$var reg 8 d active_index [7:0] $end
+$var reg 10 e active_tag [9:0] $end
+$var reg 3 f active_offset [2:0] $end
+$var reg 1 g lookup_hit $end
+$var reg 2 h hit_way [1:0] $end
+$var reg 2 i victim_way [1:0] $end
+$var reg 32 j read_data [31:0] $end
+$scope function block_get_word $end
+$upscope $end
+$scope function block_set_word $end
+$upscope $end
+$upscope $end
+$scope module DUT_MEM $end
+$var parameter 32 k ADDRESS_WIDTH $end
+$var parameter 32 l BLOCK_SIZE $end
+$var parameter 0 m FILE $end
+$var parameter 32 n DEPTH $end
+$var reg 1 o clock $end
+$var reg 256 p din [255:0] $end
+$var reg 18 q address [17:0] $end
+$var reg 1 r rden $end
+$var reg 1 s wren $end
+$var reg 256 t dout [255:0] $end
+$var integer 32 u i $end
+$upscope $end
+$upscope $end
+$scope begin std $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b100000000 !
+b10101 "
+b1000 #
+b1010 $
+b11 %
+b100000 &
+b100000000 '
+b100 (
+b )
+b11001000 *
+b110 +
+b10 ,
+b0 -
+b100000000000 .
+b1000000000000 /
+b1100000000000 0
+b10000000000000 1
+b1000 2
+b100000000 B
+b10101 C
+b1000 D
+b1010 E
+b11 F
+b100000 G
+b100000000 H
+b100 I
+b10100 J
+b1011 K
+b1010 L
+b11 M
+b10 N
+b0 O
+b10010 k
+b100000000 l
+b m
+b1000000000000000000 n
+13
+04
+b0 5
+b0 6
+bx 7
+08
+09
+0:
+b0 ;
+b0 <
+b0 =
+0>
+0?
+b0 @
+b0 A
+1P
+0Q
+b0 R
+b0 S
+bx T
+0U
+0V
+0W
+b0 X
+b0 Y
+b0 Z
+0[
+0\
+b0 ]
+b0 ^
+bx _
+0`
+0a
+bx b
+b0 c
+b0 d
+b0 e
+b0 f
+0g
+b0 h
+b0 i
+b0 j
+1o
+b0 p
+b0 q
+0r
+0s
+bx t
+b1000000000000000000 u
+$end
+#100000
+03
+0P
+0o
+#200000
+13
+1P
+1o
+#300000
+03
+0P
+0o
+#400000
+13
+1P
+1o
+14
+1Q
+#500000
+03
+0P
+0o
+#600000
+13
+1P
+1o
+#700000
+03
+0P
+0o
+#800000
+13
+1P
+1o
+18
+1U
+b10 ^
+#900000
+03
+0P
+0o
+#1000000
+13
+1P
+1o
+b10 ]
+b0 _
+1`
+b0 b
+08
+0U
+b110 ^
+#1100000
+03
+0P
+0o
+#1200000
+13
+1P
+1o
+b110 ]
+1[
+b111 ^
+1>
+1r
+#1300000
+03
+0P
+0o
+#1400000
+13
+1P
+1o
+b111 ]
+b0 t
+b0 7
+b0 T
+0[
+b1 ^
+0>
+0r
+#1500000
+03
+0P
+0o
+#1600000
+13
+1P
+1o
+b1 ]
+1g
+b1 i
+b0 ^
+1W
+1:
+#1700000
+03
+0P
+0o
+#1800000
+13
+1P
+1o
+b0 ]
+#1900000
+03
+0P
+0o
+#2000000
+13
+1P
+1o
+#2100000
+03
+0P
+0o
+#2200000
+13
+1P
+1o
+#2300000
+03
+0P
+0o
+#2400000
+13
+1P
+1o
+18
+1U
+b1 ^
+#2500000
+03
+0P
+0o
+#2600000
+13
+1P
+1o
+b1 ]
+08
+0U
+b0 ^
+#2700000
+03
+0P
+0o
+#2800000
+13
+1P
+1o
+b0 ]
+#2900000
+03
+0P
+0o
+#3000000
+13
+1P
+1o
+b1 @
+#3100000
+03
+0P
+0o
+#3200000
+13
+1P
+1o
+b1 5
+b1 R
+18
+1U
+b1 c
+b1 f
+b1 ^
+#3300000
+03
+0P
+0o
+#3400000
+13
+1P
+1o
+b1 ]
+b1 _
+08
+0U
+b0 ^
+#3500000
+03
+0P
+0o
+#3600000
+13
+1P
+1o
+b0 ]
+#3700000
+03
+0P
+0o
+#3800000
+13
+1P
+1o
+#3900000
+03
+0P
+0o
+#4000000
+13
+1P
+1o
+b10 5
+b10 R
+18
+1U
+b10 c
+b10 f
+b1 ^
+#4100000
+03
+0P
+0o
+#4200000
+13
+1P
+1o
+b1 ]
+b10 _
+08
+0U
+b0 ^
+#4300000
+03
+0P
+0o
+#4400000
+13
+1P
+1o
+b0 ]
+#4500000
+03
+0P
+0o
+#4600000
+13
+1P
+1o
+b10 @
+#4700000
+03
+0P
+0o
+#4800000
+13
+1P
+1o
+b100000000000 5
+b100000000000 R
+18
+1U
+b100000000000 c
+b1 e
+b0 f
+0g
+b10 ^
+0W
+0:
+#4900000
+03
+0P
+0o
+#5000000
+13
+1P
+1o
+b10 ]
+b100000000000 _
+08
+0U
+b110 ^
+#5100000
+03
+0P
+0o
+#5200000
+13
+1P
+1o
+b110 ]
+1[
+b100000000 Z
+b111 ^
+1>
+1r
+b100000000 =
+b100000000 q
+#5300000
+03
+0P
+0o
+#5400000
+13
+1P
+1o
+b111 ]
+b0 Z
+0[
+b1 ^
+b0 =
+b0 q
+0>
+0r
+#5500000
+03
+0P
+0o
+#5600000
+13
+1P
+1o
+b1 ]
+b0 i
+b10 i
+1g
+b1 h
+b0 ^
+1W
+1:
+#5700000
+03
+0P
+0o
+#5800000
+13
+1P
+1o
+b0 ]
+#5900000
+03
+0P
+0o
+#6000000
+13
+1P
+1o
+#6100000
+03
+0P
+0o
+#6200000
+13
+1P
+1o
+#6300000
+03
+0P
+0o
+#6400000
+13
+1P
+1o
+b1000000000000 5
+b1000000000000 R
+18
+1U
+b1000000000000 c
+b10 e
+0g
+b0 h
+b10 ^
+0W
+0:
+#6500000
+03
+0P
+0o
+#6600000
+13
+1P
+1o
+b10 ]
+b1000000000000 _
+08
+0U
+b110 ^
+#6700000
+03
+0P
+0o
+#6800000
+13
+1P
+1o
+b110 ]
+1[
+b1000000000 Z
+b111 ^
+1>
+1r
+b1000000000 =
+b1000000000 q
+#6900000
+03
+0P
+0o
+#7000000
+13
+1P
+1o
+b111 ]
+b0 Z
+0[
+b1 ^
+b0 =
+b0 q
+0>
+0r
+#7100000
+03
+0P
+0o
+#7200000
+13
+1P
+1o
+b1 ]
+b0 i
+b11 i
+1g
+b10 h
+b0 ^
+1W
+1:
+#7300000
+03
+0P
+0o
+#7400000
+13
+1P
+1o
+b0 ]
+#7500000
+03
+0P
+0o
+#7600000
+13
+1P
+1o
+#7700000
+03
+0P
+0o
+#7800000
+13
+1P
+1o
+#7900000
+03
+0P
+0o
+#8000000
+13
+1P
+1o
+b1100000000000 5
+b1100000000000 R
+18
+1U
+b1100000000000 c
+b11 e
+0g
+b0 h
+b10 ^
+0W
+0:
+#8100000
+03
+0P
+0o
+#8200000
+13
+1P
+1o
+b10 ]
+b1100000000000 _
+08
+0U
+b110 ^
+#8300000
+03
+0P
+0o
+#8400000
+13
+1P
+1o
+b110 ]
+1[
+b1100000000 Z
+b111 ^
+1>
+1r
+b1100000000 =
+b1100000000 q
+#8500000
+03
+0P
+0o
+#8600000
+13
+1P
+1o
+b111 ]
+b0 Z
+0[
+b1 ^
+b0 =
+b0 q
+0>
+0r
+#8700000
+03
+0P
+0o
+#8800000
+13
+1P
+1o
+b1 ]
+b0 i
+1g
+b11 h
+b0 ^
+1W
+1:
+#8900000
+03
+0P
+0o
+#9000000
+13
+1P
+1o
+b0 ]
+#9100000
+03
+0P
+0o
+#9200000
+13
+1P
+1o
+#9300000
+03
+0P
+0o
+#9400000
+13
+1P
+1o
+b11 @
+#9500000
+03
+0P
+0o
+#9600000
+13
+1P
+1o
+b10000000000000 5
+b10000000000000 R
+18
+1U
+b10000000000000 c
+b100 e
+0g
+b0 h
+b10 ^
+0W
+0:
+#9700000
+03
+0P
+0o
+#9800000
+13
+1P
+1o
+b10 ]
+b10000000000000 _
+08
+0U
+b110 ^
+#9900000
+03
+0P
+0o
+#10000000
+13
+1P
+1o
+b110 ]
+1[
+b10000000000 Z
+b111 ^
+1>
+1r
+b10000000000 =
+b10000000000 q
+#10100000
+03
+0P
+0o
+#10200000
+13
+1P
+1o
+b111 ]
+b0 Z
+0[
+b1 ^
+b0 =
+b0 q
+0>
+0r
+#10300000
+03
+0P
+0o
+#10400000
+13
+1P
+1o
+b1 ]
+b1 i
+1g
+b0 ^
+1W
+1:
+#10500000
+03
+0P
+0o
+#10600000
+13
+1P
+1o
+b0 ]
+#10700000
+03
+0P
+0o
+#10800000
+13
+1P
+1o
+#10900000
+03
+0P
+0o
+#11000000
+13
+1P
+1o
+b100 @
+#11100000
+03
+0P
+0o
+#11200000
+13
+1P
+1o
+b100000000000 5
+b100000000000 R
+b11011110101011011011111011101111 6
+b11011110101011011011111011101111 S
+19
+1V
+b100000000000 c
+b1 e
+0g
+1g
+b1 h
+b11 ^
+#11300000
+03
+0P
+0o
+#11400000
+13
+1P
+1o
+b11 ]
+b100000000000 _
+0`
+1a
+b11011110101011011011111011101111 b
+09
+0V
+b0 ^
+#11500000
+03
+0P
+0o
+#11600000
+13
+1P
+1o
+b0 ]
+b11011110101011011011111011101111 j
+b0 i
+b10 i
+#11700000
+03
+0P
+0o
+#11800000
+13
+1P
+1o
+b101 @
+#11900000
+03
+0P
+0o
+#12000000
+13
+1P
+1o
+b1000 5
+b1000 R
+b11001010111111101011101010111110 6
+b11001010111111101011101010111110 S
+19
+1V
+b1000 c
+b1 d
+b0 e
+b0 j
+0g
+b0 h
+b0 i
+b100 ^
+0W
+0:
+#12100000
+03
+0P
+0o
+#12200000
+13
+1P
+1o
+b100 ]
+b1000 _
+b11001010111111101011101010111110 b
+09
+0V
+b110 ^
+#12300000
+03
+0P
+0o
+#12400000
+13
+1P
+1o
+b110 ]
+1[
+b1 Z
+b111 ^
+1>
+1r
+b1 =
+b1 q
+#12500000
+03
+0P
+0o
+#12600000
+13
+1P
+1o
+b111 ]
+b0 Z
+0[
+b11 ^
+b0 =
+b0 q
+0>
+0r
+#1
