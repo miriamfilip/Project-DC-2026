@@ -1,6 +1,6 @@
 library verilog;
 use verilog.vl_types.all;
-entity alu_booth_radix4 is
+entity alu_srt2 is
     port(
         clk             : in     vl_logic;
         enable          : in     vl_logic;
@@ -9,4 +9,4 @@ entity alu_booth_radix4 is
         done            : out    vl_logic;
         outbus          : out    vl_logic_vector(7 downto 0)
     );
-end alu_booth_radix4;
+end alu_srt2;

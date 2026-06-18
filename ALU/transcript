@@ -1,4 +1,4 @@
-# do run_booth_radix4.do 
+# do run_srt2.do 
 # Modifying /opt/modelsim/linuxaloem/../modelsim.ini
 # Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 # -- Compiling module dff
@@ -42,6 +42,11 @@
 # Top level modules:
 # 	alu_shift
 # Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
+# -- Compiling module count_leading_zeros
+# 
+# Top level modules:
+# 	count_leading_zeros
+# Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
 # -- Compiling module register
 # 
 # Top level modules:
@@ -52,47 +57,84 @@
 # Top level modules:
 # 	counter_nbits
 # Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
-# -- Compiling module cu_booth
+# -- Compiling module cu_srt2
 # 
 # Top level modules:
-# 	cu_booth
+# 	cu_srt2
 # Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
-# -- Compiling module alu_booth_radix4
+# -- Compiling module alu_srt2
 # 
 # Top level modules:
-# 	alu_booth_radix4
+# 	alu_srt2
 # Model Technology ModelSim ALTERA vlog 6.5b Compiler 2009.10 Oct  1 2009
-# -- Compiling module alu_booth_radix4_tb
+# -- Compiling module alu_srt2_tb
 # 
 # Top level modules:
-# 	alu_booth_radix4_tb
-# vsim alu_booth_radix4_tb 
+# 	alu_srt2_tb
+# vsim alu_srt2_tb 
 # Loading sv_std.std
-# Loading work.alu_booth_radix4_tb
-# Loading work.alu_booth_radix4
-# ** Warning: (vsim-3009) [TSCALE] - Module 'alu_booth_radix4' does not have a `timescale directive in effect, but previous modules do.
-#         Region: /alu_booth_radix4_tb/dut
-# Loading work.cu_booth
+# Loading work.alu_srt2_tb
+# Loading work.alu_srt2
+# ** Warning: (vsim-3009) [TSCALE] - Module 'alu_srt2' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /alu_srt2_tb/dut
 # Loading work.counter_nbits
 # Loading work.jkff
 # Loading work.and2_gate
+# Loading work.count_leading_zeros
+# ** Warning: (vsim-3009) [TSCALE] - Module 'count_leading_zeros' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /alu_srt2_tb/dut/lzc
+# Loading work.cu_srt2
+# ** Warning: (vsim-3009) [TSCALE] - Module 'cu_srt2' does not have a `timescale directive in effect, but previous modules do.
+#         Region: /alu_srt2_tb/dut/Control_Unit
 # Loading work.tristate_buffer_bus
 # ** Warning: (vsim-3009) [TSCALE] - Module 'tristate_buffer_bus' does not have a `timescale directive in effect, but previous modules do.
-#         Region: /alu_booth_radix4_tb/dut/M_in
+#         Region: /alu_srt2_tb/dut/B_in
 # Loading work.register
-# Loading work.alu_shift
-# ** Warning: (vsim-3009) [TSCALE] - Module 'alu_shift' does not have a `timescale directive in effect, but previous modules do.
-#         Region: /alu_booth_radix4_tb/dut/shift_2M
-# Loading work.mux2
 # Loading work.alu_addsub
 # ** Warning: (vsim-3009) [TSCALE] - Module 'alu_addsub' does not have a `timescale directive in effect, but previous modules do.
-#         Region: /alu_booth_radix4_tb/dut/adder_instance
+#         Region: /alu_srt2_tb/dut/adder_instance
 # Loading work.or2_gate
+# Loading work.mux2
 # Loading work.dff
-# Starting alu_booth_radix4 testbench
-# PASS: 53 * -128 = -6784 (got -6784)
-# --------------------------------------------------
-# Tests passed: 1, Tests failed: 0
-# Testbench complete
-# ** Note: $finish    : tb/alu_booth_radix4_tb.sv(124)
-#    Time: 215 ns  Iteration: 1  Instance: /alu_booth_radix4_tb
+# ------------------------------------------
+# Starting alu_srt2 testbench
+# ------------------------------------------
+# FAIL: 35 / 5
+#  Expected Q=7 R=0
+#  Got      Q=0 R=0
+# FAIL: 100 / 3
+#  Expected Q=33 R=1
+#  Got      Q=-1 R=0
+# FAIL: 127 / 2
+#  Expected Q=63 R=1
+#  Got      Q=-65 R=127
+# FAIL: 64 / 8
+#  Expected Q=8 R=0
+#  Got      Q=-1 R=0
+# FAIL: -35 / 5
+#  Expected Q=-7 R=0
+#  Got      Q=-97 R=0
+# FAIL: 35 / -5
+#  Expected Q=-7 R=0
+#  Got      Q=0 R=0
+# FAIL: -35 / -5
+#  Expected Q=7 R=0
+#  Got      Q=-36 R=-56
+# PASS: 0 / 5 = 0 R=0
+# FAIL: 127 / 1
+#  Expected Q=127 R=0
+#  Got      Q=127 R=127
+# FAIL: -128 / 2
+#  Expected Q=-64 R=0
+#  Got      Q=-1 R=0
+# ------------------------------------------
+# Tests Passed : 1
+# Tests Failed : 9
+# ------------------------------------------
+# ** Note: $finish    : tb/alu_srt2_tb.sv(218)
+#    Time: 3325 ns  Iteration: 1  Instance: /alu_srt2_tb
+# 1
+# Break in Module alu_srt2_tb at tb/alu_srt2_tb.sv line 218
+# Simulation Breakpoint: 1
+# Break in Module alu_srt2_tb at tb/alu_srt2_tb.sv line 218
+# MACRO ./run_srt2.do PAUSED at line 56
