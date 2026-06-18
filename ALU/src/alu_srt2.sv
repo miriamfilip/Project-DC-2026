@@ -39,7 +39,7 @@ module alu_srt2(
     logic counter_and_o1;
     logic count_and_o;
 
-    logic signed [8:0] remainder_final;
+    logic correction_flag;
 
     counter_nbits #(.WIDTH(3)) counter(
         .clk(clk),
@@ -69,12 +69,10 @@ module alu_srt2(
         .k_is_zero(k_is_zero)
     );
 
-    logic p_zero;
-    logic p_positive;
-    logic p_negative;
+    logic [2:0] p_top3;
+    logic       p_negative;
 
-    assign p_zero     = (P_reg == 9'sd0);
-    assign p_positive = (~P_reg[8]) && (P_reg != 0);
+    assign p_top3     = P_reg[8:6];
     assign p_negative = P_reg[8];
 
     cu_srt2 Control_Unit(
@@ -84,8 +82,7 @@ module alu_srt2(
 
         .count(count_and_o),
 
-        .p_zero(p_zero),
-        .p_positive(p_positive),
+        .p_top3(p_top3),
         .p_negative(p_negative),
 
         .k_is_zero(k_is_zero),
@@ -101,32 +98,23 @@ module alu_srt2(
     );
 
     always_comb begin
-
         B_load_en = c[0] | c[1];
-
         if(c[0])
             B_next = B_input;
-
         else if(c[1])
             B_next = B_reg <<< K;
-
         else
             B_next = B_reg;
-
     end
 
     register #(.WIDTH(8)) reg_B(
-
         .clk(clk),
         .rst_n(rst_n),
-
         .load_en(B_load_en),
-
         .shift_en(1'b0),
         .sr(1'b0),
         .sl(1'b0),
         .shift_dir(1'b0),
-
         .d(B_next),
         .q(B_reg)
     );
@@ -137,35 +125,9 @@ module alu_srt2(
         .data_out(A_input)
     );
 
-    always_comb begin
-        A_load_en = c[1] | c[2];
-        if(c[1])
-            A_next = A_input <<< K;
-        else
-            A_next = A_reg;
-
-    end
-
-    register #(.WIDTH(8)) reg_A(
-
-        .clk(clk),
-        .rst_n(rst_n),
-
-        .load_en(A_load_en),
-
-        .shift_en(1'b0),
-        .sr(1'b0),
-        .sl(1'b0),
-        .shift_dir(1'b0),
-
-        .d(A_next),
-        .q(A_reg)
-    );
-
     logic signed [16:0] PA_combined;
     logic signed [16:0] PA_shifted;
-
-    logic [3:0] shift_amount;
+    logic [3:0]         shift_amount;
 
     assign PA_combined = {P_reg, A_reg};
 
@@ -178,62 +140,79 @@ module alu_srt2(
 
     assign PA_shifted = PA_combined <<< shift_amount;
 
-    logic signed [8:0] B_sext;
+    always_comb begin
+        A_load_en = c[1] | c[2];
+        if(c[1])
+            A_next = A_input <<< K;
+        else if(c[2])
+            A_next = c[3] ? {PA_shifted[7:1], 1'b1} : PA_shifted[7:0];
+        else
+            A_next = A_reg;
+    end
 
+    register #(.WIDTH(8)) reg_A(
+        .clk(clk),
+        .rst_n(rst_n),
+        .load_en(A_load_en),
+        .shift_en(1'b0),
+        .sr(1'b0),
+        .sl(1'b0),
+        .shift_dir(1'b0),
+        .d(A_next),
+        .q(A_reg)
+    );
+
+    logic signed [8:0] B_sext;
     assign B_sext = {B_reg[7], B_reg};
 
+    logic signed [8:0] adder_A;
+    logic              adder_sub;
     logic signed [8:0] adder_o;
-    logic overflow_unused;
+    logic              overflow_unused;
+
+    assign adder_A   = c[2] ? PA_shifted[16:8] : P_reg;
+    assign adder_sub = c[2] && c[4];
 
     alu_addsub #(.WIDTH(9)) adder_instance(
-        .A(P_reg),
+        .A(adder_A),
         .B(B_sext),
-        .sub(c[4]),        
+        .sub(adder_sub),
         .result(adder_o),
         .overflow(overflow_unused)
-
     );
 
     always_comb begin
-        P_load_en = c[0] | c[1] | c[2] | c[3] | c[4] | c[9];
+        P_load_en = c[0] | c[1] | c[2] | c[6];
         if(c[0])
             P_next = 9'sd0;
         else if(c[1])
             P_next = PA_shifted[16:8];
         else if(c[2])
-            P_next = PA_shifted[16:8];
-        else if(c[3])
-            P_next = adder_o;
-        else if(c[4])
-            P_next = adder_o;
-        else if(c[9])
+            P_next = (c[3] || c[4]) ? adder_o : PA_shifted[16:8];
+        else if(c[6])
             P_next = adder_o;
         else
             P_next = P_reg;
     end
 
     register #(.WIDTH(9)) reg_P(
-
         .clk(clk),
         .rst_n(rst_n),
-
         .load_en(P_load_en),
-
         .shift_en(1'b0),
         .sr(1'b0),
         .sl(1'b0),
         .shift_dir(1'b0),
-
         .d(P_next),
         .q(P_reg)
-
     );
 
     always_comb begin
-        Qm_load_en = c[4];      
-        Qm_next = Qm_reg;
-        if(c[4])
-            Qm_next = {Qm_reg[6:0], p_negative};
+        Qm_load_en = c[2];
+        if(c[2])
+            Qm_next = {Qm_reg[6:0], c[4]};
+        else
+            Qm_next = Qm_reg;
     end
 
     register #(.WIDTH(8)) reg_Qm(
@@ -248,43 +227,42 @@ module alu_srt2(
         .q(Qm_reg)
     );
 
+    always_ff @(posedge clk or negedge rst_n) begin
+        if(!rst_n)
+            correction_flag <= 1'b0;
+        else if(c[0])
+            correction_flag <= 1'b0;          // clear for new division
+        else if(c[6])
+            correction_flag <= 1'b1;          // latch: correction was applied
+    end
+
     logic [7:0] quotient_final;
-    logic quotient_overflow;
+    logic       quotient_overflow;
 
     alu_addsub #(.WIDTH(8)) quotient_sub(
-
         .A(A_reg),
         .B(Qm_reg),
-
         .sub(1'b1),
-
         .result(quotient_final),
         .overflow(quotient_overflow)
-
     );
 
-    logic signed [8:0] remainder_corrected;
-
-    assign remainder_corrected = p_negative ? (P_reg + B_sext) : P_reg;
-
     logic [7:0] quotient_corrected;
+    assign quotient_corrected = correction_flag ? (quotient_final - 8'd1) : quotient_final;
 
-    assign quotient_corrected = p_negative ? (quotient_final - 8'd1) : quotient_final;
+    logic signed [8:0] remainder_final;
+    assign remainder_final = k_is_zero ? P_reg : (P_reg >>> K);
 
     tristate_buffer_bus #(.WIDTH(8)) quotient_out(
         .data_in(quotient_corrected),
-        .enable(c[8]),         
+        .enable(c[8]),
         .data_out(output_buffer)
     );
 
-
-    assign remainder_final = k_is_zero ? remainder_corrected : (remainder_corrected >>> K);
-
     tristate_buffer_bus #(.WIDTH(8)) remainder_out(
         .data_in(remainder_final[7:0]),
-        .enable(c[9]),          
+        .enable(c[9]),
         .data_out(output_buffer)
-
     );
 
     assign outbus = output_buffer;

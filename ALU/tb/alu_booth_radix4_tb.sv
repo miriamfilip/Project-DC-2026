@@ -114,7 +114,7 @@ module alu_booth_radix4_tb;
     //   run_and_check(-8'sd128,  8'sd1);     // -128
     //   run_and_check(-8'sd3,   8'sd105);   // 16129
     //   run_and_check(8'sd127, 8'sd127);   // 16129
-      run_and_check(8'b00110101, -8'sd128);   // 16384
+      run_and_check(8'sd7, 8'sd8);   // 16384
     //   run_and_check(8'sd0,     8'sd99);    // 0
     //   run_and_check(8'sd10,   -8'sd1);     // -10
 

@@ -3,9 +3,26 @@ K3
 13
 cModel Technology
 Z0 d/home/dragos/Documents/Uni/YEAR2_SEM2/Digital_Computers/Project-DC-2026/ALU
-valu_addsub
+valu
 Z1 Mx1 6 sv_std 3 std
 Z2 DXx6 sv_std 3 std 0 22 WnQ=;W1X^o9K1PIQTgInR3
+I=<TUnIfMzld?Dd:34:=:;1
+Vgm7o7?;XB<:Pi3TjIioRE0
+S1
+w1781824904
+8src/alu_8bit.sv
+Fsrc/alu_8bit.sv
+L0 3
+Z3 OV;L;6.5b;42
+r1
+31
+o-O0
+!s100 Kh;17Oh9bR5^IS7_5Cc^l2
+!s85 0
+!s101 -O0
+valu_addsub
+R1
+R2
 I9^oAM]`V_Nic4PDc2g3Yi1
 VLgMiTCb:EHZ?3Xk4_<n911
 S1
@@ -13,11 +30,62 @@ w1781679253
 8src/alu_addsub.sv
 Fsrc/alu_addsub.sv
 L0 1
-Z3 OV;L;6.5b;42
+R3
 r1
 31
 o-O0
 !s100 HGX`oXb8WAlIc3G5V=A8S1
+!s85 0
+!s101 -O0
+valu_booth_radix4
+R1
+R2
+Imd9N[:ga2HO7:FgF:iSk00
+VNUSL@cTTH5JT_W7NPmeAi3
+S1
+w1781825320
+8src/alu_booth_radix4.sv
+Fsrc/alu_booth_radix4.sv
+L0 1
+R3
+r1
+31
+o-O0
+!s100 B9I[=:Dk>ne6BTdiE79G40
+!s85 0
+!s101 -O0
+valu_div
+R1
+R2
+IRB>`dYgh9JI7Q1d3E3kZK1
+V>R@?XE;0R;HJkJU3aebAT0
+S1
+w1781821863
+8src/alu_div.sv
+Fsrc/alu_div.sv
+L0 1
+R3
+r1
+31
+o-O0
+!s100 V?zIfg>[KzO?^VRIJ1Y_72
+!s85 0
+!s101 -O0
+valu_logic
+R1
+R2
+I>2h8>2AWL0EhYK1L0e1c30
+VBglKQUdS^YQ:^KPS`7S9`2
+S1
+w1781551327
+8src/alu_logic.sv
+Fsrc/alu_logic.sv
+L0 1
+R3
+r1
+31
+o-O0
+!s100 Pei;<>R^HP`1fC2VmD[I`2
 !s85 0
 !s101 -O0
 valu_shift
@@ -37,34 +105,17 @@ o-O0
 !s100 fm;3[MfCU3bIn_YGYoBmc3
 !s85 0
 !s101 -O0
-valu_srt2
+valu_tb
 R1
 R2
-Ib<LnS]izV;2Q5CK]FSfgP2
-V[5zcdhK8GbBbFM^2;QSKO3
+!s100 ;G32NJ<f90]]@n:Yg[PeD3
+Ih6RY2RW9L2bVhU1a_a24Q0
+VL;=kgzZ7GJ2Reg7Z1GkmR2
 S1
-w1781807912
-8src/alu_srt2.sv
-Fsrc/alu_srt2.sv
-L0 1
-R3
-r1
-31
-o-O0
-!s100 [7IZ:RU`]SO=z1RmTe0`<1
-!s85 0
-!s101 -O0
-valu_srt2_tb
-R1
-R2
-!s100 ;7QC4W6dO4dXYQIb@_OTH3
-I[[=V]DYBf:c7d1=3z>FUE2
-V=AgZCZz6fTnG4;[@_;`XK0
-S1
-w1781807234
-8tb/alu_srt2_tb.sv
-Ftb/alu_srt2_tb.sv
-L0 11
+w1781822827
+8tb/alu_tb.sv
+Ftb/alu_tb.sv
+L0 3
 R3
 r1
 !s85 0
@@ -105,23 +156,6 @@ o-O0
 !s100 Q]0;;ghS`8T71@WLT6C1U0
 !s85 0
 !s101 -O0
-vcount_leading_zeros
-R1
-R2
-IF1<]8HLMgXBfKoPO?]Sig3
-VB`b`4D8Qo4o^LKLHhRDXP3
-S1
-w1781805522
-8src/count_leading_zeros.sv
-Fsrc/count_leading_zeros.sv
-L0 1
-R3
-r1
-31
-o-O0
-!s100 FWGXnz<mKe8OKP38bDDKJ2
-!s85 0
-!s101 -O0
 vcounter_nbits
 R1
 R2
@@ -139,21 +173,21 @@ o-O0
 !s100 :BlRHozZ[O@<`<o8j9:oV3
 !s85 0
 !s101 -O0
-vcu_srt2
+vcu_booth
 R1
 R2
-I6]:QITD4@9DHMIk09mK733
-Vco4HaHXPB2ljUHoI5jiOa3
+I]EbegA1gIf8eAK2h2]17f2
+VVi`eV5^=OF`[`a^S_lcJ02
 S1
-w1781802658
-8src/cu_srt2.sv
-Fsrc/cu_srt2.sv
-L0 1
+w1781825438
+8src/cu_booth.sv
+Fsrc/cu_booth.sv
+L0 2
 R3
 r1
 31
 o-O0
-!s100 bdoZHD[5W][kSEgFWke0e0
+!s100 f[_Nl6GW7`<=eZRBA]b^X3
 !s85 0
 !s101 -O0
 vdff

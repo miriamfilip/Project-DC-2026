@@ -51,43 +51,45 @@ module cu_booth (
 		C1_LOAD_Q: begin
 			c[1] = 1;
 			next = SCAN;
+		end
+		SCAN: begin
 			if(input_is_zero == 1) begin
 				$display("Skipping uneccessary steps");
 				next = OUTPUT_A;
 			end
-		end
-		SCAN: begin
-			case ({q1,q0,qm1})
-				3'b000: begin
-				end
-				3'b001: begin
-					c[2] = 1;
-				end
-				3'b010: begin
-					c[2] = 1;	
-				end
-				3'b011: begin
-					c[2] = 1;	
-					c[4] = 1;
-				end	
-				3'b100: begin
-					c[2] = 1;
-					c[3] = 1;	
-					c[4] = 1;
-				end	
-				3'b101: begin
-					c[2] = 1;
-					c[3] = 1;	
-				end
-				3'b110: begin
-					c[2] = 1;
-					c[3] = 1;	
-				end
-				3'b111: begin
-				end
-			endcase
-
-			next = SHIFT;
+			else begin
+				case ({q1,q0,qm1})
+					3'b000: begin
+					end
+					3'b001: begin
+						c[2] = 1;
+					end
+					3'b010: begin
+						c[2] = 1;	
+					end
+					3'b011: begin
+						c[2] = 1;	
+						c[4] = 1;
+					end	
+					3'b100: begin
+						c[2] = 1;
+						c[3] = 1;	
+						c[4] = 1;
+					end	
+					3'b101: begin
+						c[2] = 1;
+						c[3] = 1;	
+					end
+					3'b110: begin
+						c[2] = 1;
+						c[3] = 1;	
+					end
+					3'b111: begin
+					end
+				endcase
+				
+				next = SHIFT;
+			end
 		end
 		SHIFT: begin
 			c[5] = 1;

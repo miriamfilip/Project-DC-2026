@@ -4,7 +4,8 @@ module alu_booth_radix4(
     input  logic              rst_n,
     input  logic signed [7:0] inbus,
     output logic              done,
-    output logic [7:0]        outbus
+    output logic [7:0]        outbus,
+    output logic signed [15:0] product
 );
 
     logic [8:0] c;
@@ -204,5 +205,17 @@ module alu_booth_radix4(
     );
 
     assign outbus = output_buffer;  
+    assign product = {A_reg[7:0], Q_reg[8:1]};
+
+always @(posedge clk) begin
+    $display("state=%0d c=%b count=%0d A=%0d Q=%b M=%0d adder=%0d",
+        Control_Unit.state,
+        c,
+        counter_o,
+        A_reg,
+        Q_reg,
+        M_reg,
+        adder_o);
+end
 
 endmodule
