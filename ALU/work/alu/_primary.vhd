@@ -9,6 +9,7 @@ entity alu is
         B               : in     vl_logic_vector(7 downto 0);
         opcode          : in     vl_logic_vector(3 downto 0);
         result          : out    vl_logic_vector(15 downto 0);
+        remainder       : out    vl_logic_vector(7 downto 0);
         Z               : out    vl_logic;
         N               : out    vl_logic;
         V               : out    vl_logic;

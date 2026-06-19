@@ -96,12 +96,11 @@ module cu_booth (
 			next = CHECK;	   
 		end
 		CHECK: begin
+			c[6] = 1;
 			if (count)
 				next = OUTPUT_A;
-			else begin
-				c[6] = 1;
+			else
 				next = SCAN;
-			end
 		end
 		OUTPUT_A:begin
 			c[7] = 1;

@@ -12,6 +12,7 @@ module alu(
     input logic [3:0] opcode,
 
     output logic signed [15:0] result,
+    output logic signed [7:0]  remainder,
 
     output logic Z,
     output logic N,
@@ -170,9 +171,9 @@ module alu(
     end
 
     always_comb begin
-
-        result = 0;
-        done   = 1;
+        result    = 0;
+        remainder = 0;
+        done      = 1;
 
         case(opcode)
 
@@ -202,8 +203,9 @@ module alu(
             end
 
             DIV: begin
-                result = div_q;
-                done   = 1'b1;
+                result    = div_q;
+                remainder = div_r;
+                done      = 1'b1;
             end
 
             default:
